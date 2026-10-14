@@ -1,0 +1,75 @@
+#imagegrab-root {
+  all: initial;
+  position: fixed;
+  right: 20px;
+  bottom: 96px;
+  z-index: 2147483647;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+#imagegrab-button {
+  all: initial;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 0 16px 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #1f4bff;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(31, 75, 255, 0.28), 0 2px 6px rgba(16, 24, 40, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#imagegrab-button:hover {
+  background: #173fe0;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(31, 75, 255, 0.34), 0 4px 10px rgba(16, 24, 40, 0.16);
+}
+
+#imagegrab-button:active {
+  transform: translateY(0);
+}
+
+#imagegrab-button:disabled {
+  cursor: progress;
+  transform: none;
+  opacity: 0.86;
+}
+
+#imagegrab-button:focus-visible {
+  outline: 3px solid #b8c7ff;
+  outline-offset: 3px;
+}
+
+.imagegrab-mark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.imagegrab-mark::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 6px;
+  height: 2px;
+  background: #ffffff;
+  box-shadow: 0 -4px 0 #ffffff;
+}
+
+.imagegrab-label {
+  white-space: nowrap;
+}

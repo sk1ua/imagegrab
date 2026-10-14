@@ -1,0 +1,221 @@
+:root {
+  --ink: #172033;
+  --muted: #667085;
+  --line: #e7e2d8;
+  --paper: #f6f4ef;
+  --card: #ffffff;
+  --primary: #1f4bff;
+  --primary-dark: #173fe0;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.top, .toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.top {
+  padding: 22px 28px 8px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.mark {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background:
+    linear-gradient(#fff, #fff) 8px 16px / 20px 3px no-repeat,
+    linear-gradient(#fff, #fff) 8px 10px / 20px 3px no-repeat,
+    #1f4bff;
+  box-shadow: inset 0 0 0 2px #1f4bff;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 62vw;
+}
+
+.source {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.source:hover { color: var(--primary); }
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 8px 20px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.check-all, .toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.check-all {
+  font-weight: 650;
+}
+
+.count {
+  margin: 0;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+button, .primary, .ghost {
+  border: 0;
+  border-radius: 999px;
+  min-height: 36px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.primary:hover:not(:disabled) { background: var(--primary-dark); }
+.primary:disabled, button:disabled { cursor: not-allowed; opacity: 0.5; }
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 3px solid #b8c7ff;
+  outline-offset: 2px;
+}
+
+.status {
+  min-height: 24px;
+  margin: 12px 28px 0;
+  color: var(--muted);
+}
+
+.progress {
+  height: 6px;
+  margin: 0 28px 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e4e7ec;
+}
+
+#progress-bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #7c3aed);
+  transition: width 0.2s ease;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  padding: 8px 20px 40px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 8px 20px rgba(23, 32, 51, 0.04);
+}
+
+.card.selected { border-color: #9eb0ff; box-shadow: 0 0 0 2px rgba(31, 75, 255, 0.18); }
+.card.filtered { opacity: 0.55; }
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background:
+    linear-gradient(45deg, #f3f1eb 25%, transparent 25%),
+    linear-gradient(-45deg, #f3f1eb 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f3f1eb 75%),
+    linear-gradient(-45deg, transparent 75%, #f3f1eb 75%);
+  background-size: 18px 18px;
+  background-color: #fbfaf7;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.card input {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.empty {
+  margin: 40px auto;
+  max-width: 460px;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .top, .toolbar { align-items: flex-start; flex-wrap: wrap; }
+  h1 { max-width: 100%; white-space: normal; }
+  .toolbar { margin: 8px 12px 0; }
+  .grid { padding-inline: 12px; }
+}

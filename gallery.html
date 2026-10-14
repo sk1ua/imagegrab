@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>图提取 · 图片预览</title>
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <p class="eyebrow" id="platform">图提取</p>
+        <h1 id="page-title">正在读取图片</h1>
+      </div>
+    </div>
+    <a id="source-link" class="source" href="#" target="_blank" rel="noreferrer">来源页面</a>
+  </header>
+
+  <div class="toolbar">
+    <label class="check-all">
+      <input id="select-all" type="checkbox">
+      <span>全选</span>
+    </label>
+    <button id="invert" type="button">反选</button>
+    <p class="count" id="count" aria-live="polite">已选 0 / 0</p>
+    <div class="toolbar-actions">
+      <button id="recollect" type="button" class="ghost">重新获取</button>
+      <button id="download" type="button" class="primary" disabled>下载选中</button>
+    </div>
+  </div>
+
+  <p id="status" class="status" aria-live="polite"></p>
+  <div id="progress" class="progress" hidden>
+    <div id="progress-bar"></div>
+  </div>
+
+  <main id="grid" class="grid"></main>
+  <p id="empty" class="empty" hidden>这一页没有提取到可下载的商品图。图标、logo 和小于 100×100 的占位图已被自动排除。</p>
+
+  <script src="shared.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

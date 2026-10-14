@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="图提取是一款 Chrome 插件，可在淘宝、京东、拼多多商家版详情页一键提取商品图，并批量下载为 PNG。">
+  <title>图提取 · 电商详情页图片批量下载</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#intro">跳到正文</a>
+
+  <header class="nav" id="top">
+    <a class="logo" href="#top" aria-label="图提取首页">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" rx="8"></rect>
+        <path d="M9 13.5h14M9 18.5h14"></path>
+      </svg>
+      <span>图提取</span>
+    </a>
+    <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+      <span class="sr">打开菜单</span>
+    </button>
+    <nav id="nav-links" aria-label="页面导航">
+      <a href="#intro">产品介绍</a>
+      <a href="#features">核心功能</a>
+      <a href="#install">安装步骤</a>
+      <a class="nav-download" href="https://github.com/sk1ua/imagegrab/archive/refs/heads/main.zip">下载插件</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="kicker">Chrome 扩展 · Manifest V3</p>
+        <h1>一键提取电商详情页所有图片，批量下载为 PNG</h1>
+        <p class="lead">支持淘宝、天猫、京东和拼多多商家版。图片留在你的浏览器里处理，不经过额外服务器。</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/sk1ua/imagegrab/archive/refs/heads/main.zip">立即安装</a>
+          <a class="button secondary" href="#features">查看功能</a>
+        </div>
+        <ul class="platforms" aria-label="支持平台">
+          <li>淘宝</li>
+          <li>天猫</li>
+          <li>京东</li>
+          <li>拼多多</li>
+        </ul>
+      </div>
+
+      <div class="stage" aria-hidden="true">
+        <div class="page-mock">
+          <div class="page-bar"><span></span><span></span><span></span></div>
+          <div class="page-body">
+            <div class="photo"></div>
+            <div class="lines">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="float-button">获取图片</div>
+        </div>
+        <div class="gallery-mock">
+          <div class="gallery-top">
+            <b>已选 4 / 6</b>
+            <em>下载选中</em>
+          </div>
+          <div class="thumbs">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="intro">
+      <div class="section-head">
+        <p class="kicker">产品介绍</p>
+        <h2>详情页里的图，不用一张张另存</h2>
+      </div>
+      <div class="intro-grid">
+        <article class="text-card reveal">
+          <h3>图片散落在主图、缩略图和详情描述里</h3>
+          <p>懒加载、背景图和描述 iframe 会把同一件商品的图片拆开。图提取会扫描当前详情页，并把相对地址补成可下载的绝对地址。</p>
+        </article>
+        <article class="text-card reveal">
+          <h3>格式不统一，保存下来还要再转一次</h3>
+          <p>原图可能是 JPG 或 WebP。勾选后会在浏览器里转成 PNG，文件名按 <code>商品图_001.png</code> 编号。</p>
+        </article>
+        <article class="text-card reveal">
+          <h3>只在需要的页面出现</h3>
+          <p>按钮固定在详情页右下角。首页、搜索页和其他网站不会注入，也不遮挡原有的购买操作。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="features">
+      <div class="section-head">
+        <p class="kicker">核心功能</p>
+        <h2>从提取到保存，六步都在浏览器内完成</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature reveal">
+          <span class="icon" aria-hidden="true">01</span>
+          <h3>一键提取</h3>
+          <p>扫描 img、srcset、data-src、data-lazy-src 和背景图，兼容常见懒加载。</p>
+        </article>
+        <article class="feature reveal">
+          <span class="icon" aria-hidden="true">02</span>
+          <h3>智能过滤</h3>
+          <p>自动排除图标、logo、占位图，以及小于 100×100 的图片。</p>
+        </article>
+        <article class="feature reveal">
+          <span class="icon" aria-hidden="true">03</span>
+          <h3>集中预览</h3>
+          <p>新页面用网格展示全部图片，并显示读取到的尺寸。</p>
+        </article>
+        <article class="feature reveal">
+          <span class="icon" aria-hidden="true">04</span>
+          <h3>自由勾选</h3>
+          <p>支持全选、反选和按需选择，顶部实时显示已选数量。</p>
+        </article>
+        <article class="feature reveal">
+          <span class="icon" aria-hidden="true">05</span>
+          <h3>统一 PNG</h3>
+          <p>JPG、WebP 等格式通过画布转换，下载结果统一为 PNG。</p>
+        </article>
+        <article class="feature reveal">
+          <span class="icon" aria-hidden="true">06</span>
+          <h3>批量下载</h3>
+          <p>使用浏览器下载接口保存到默认目录，过程中显示进度和结果。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="section-head">
+        <p class="kicker">安装步骤</p>
+        <h2>四步加载到 Chrome</h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal">
+          <span>1</span>
+          <div>
+            <h3>下载并解压</h3>
+            <p>下载插件压缩包，解压到一个固定文件夹。不要删掉里面的 <code>manifest.json</code>。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span>2</span>
+          <div>
+            <h3>打开扩展管理页</h3>
+            <p>在 Chrome 地址栏输入 <code>chrome://extensions</code> 后回车。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span>3</span>
+          <div>
+            <h3>打开开发者模式</h3>
+            <p>打开页面右上角的「开发者模式」开关。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span>4</span>
+          <div>
+            <h3>加载已解压的扩展程序</h3>
+            <p>选择解压后的文件夹。打开商品详情页后，右下角会出现「获取图片」。</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="cta" id="download">
+      <div>
+        <p class="kicker">开始使用</p>
+        <h2>把详情页图片一次性带走</h2>
+        <p>下载后解压，选择含有 manifest.json 的文件夹即可加载。源码和本官网都在同一个仓库里。</p>
+      </div>
+      <a class="button primary" href="https://github.com/sk1ua/imagegrab/archive/refs/heads/main.zip">下载插件</a>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>图提取</strong>
+      <p>支持淘宝、天猫、京东、拼多多商家版。</p>
+    </div>
+    <p><a href="https://github.com/sk1ua/imagegrab">GitHub 仓库</a></p>
+    <p>© 2026 图提取</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

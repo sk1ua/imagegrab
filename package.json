@@ -1,0 +1,9 @@
+{
+  "name": "imagegrab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "图提取：Chrome 电商图片提取下载插件",
+  "scripts": {
+    "test": "node --test tests/shared.test.js"
+  }
+}
